@@ -9,9 +9,9 @@ import org.springframework.web.reactive.function.server.router
 import tutorial.handler.CustomerHandler
 
 @Configuration
-open class CustomerRouter {
+class CustomerRouter {
     @Bean("router")
-    open fun route(handler: CustomerHandler): RouterFunction<ServerResponse> =
+    fun route(handler: CustomerHandler): RouterFunction<ServerResponse> =
         router {
             accept(MediaType.APPLICATION_JSON)
                 .nest {

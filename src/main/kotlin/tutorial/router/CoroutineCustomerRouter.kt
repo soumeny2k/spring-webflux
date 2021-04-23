@@ -10,10 +10,10 @@ import org.springframework.web.reactive.function.server.coRouter
 import tutorial.handler.CoroutineCustomerHandler
 
 @Configuration
-open class CoroutineCustomerRouter {
+class CoroutineCustomerRouter {
     @Bean("cRouter")
     @FlowPreview
-    open fun route(handler: CoroutineCustomerHandler): RouterFunction<ServerResponse> =
+    fun route(handler: CoroutineCustomerHandler): RouterFunction<ServerResponse> =
         coRouter {
             accept(MediaType.APPLICATION_JSON)
                 .nest {

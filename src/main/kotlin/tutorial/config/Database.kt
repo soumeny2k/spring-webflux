@@ -9,11 +9,11 @@ import org.springframework.r2dbc.connection.init.ConnectionFactoryInitializer
 import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator
 
 @Configuration
-open class Database {
+class Database {
     @Bean
-    open fun initializer(connectionFactory: ConnectionFactory?): ConnectionFactoryInitializer? {
+    fun initializer(connectionFactory: ConnectionFactory?): ConnectionFactoryInitializer? {
         val initializer = ConnectionFactoryInitializer()
-        initializer.setConnectionFactory(connectionFactory)
+        initializer.setConnectionFactory(connectionFactory!!)
         val populator = CompositeDatabasePopulator()
         populator.addPopulators(ResourceDatabasePopulator(ClassPathResource("schema.sql")))
         initializer.setDatabasePopulator(populator)
