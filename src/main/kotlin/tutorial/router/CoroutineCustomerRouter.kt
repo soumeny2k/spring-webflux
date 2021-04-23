@@ -1,5 +1,6 @@
 package tutorial.router
 
+import kotlinx.coroutines.FlowPreview
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.MediaType
@@ -11,6 +12,7 @@ import tutorial.handler.CoroutineCustomerHandler
 @Configuration
 open class CoroutineCustomerRouter {
     @Bean("cRouter")
+    @FlowPreview
     open fun route(handler: CoroutineCustomerHandler): RouterFunction<ServerResponse> =
         coRouter {
             accept(MediaType.APPLICATION_JSON)
